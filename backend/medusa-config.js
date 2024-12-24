@@ -31,10 +31,14 @@ module.exports = {
     medusa_v2: true
   },
   admin: {
-    path: "/app",
     serve: true,
+    path: "/app",
+    outDir: "build/admin",
     develop: {
-      open: false,
-    }
+      open: process.env.NODE_ENV === "development",
+      port: 7001,
+      serve: true
+    },
+    staticPath: "public"
   }
 };
