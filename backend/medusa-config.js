@@ -14,7 +14,7 @@ const STORE_CORS = process.env.STORE_CORS || "*";
 
 const DATABASE_URL = process.env.DATABASE_URL || "postgres://localhost/medusa-store";
 
-module.exports = {
+const config = {
   projectConfig: {
     database_url: DATABASE_URL,
     database_type: "postgres",
@@ -29,8 +29,11 @@ module.exports = {
   plugins: [],
   featureFlags: {
     medusa_v2: true
-  },
-  admin: {
+  }
+};
+
+if (process.env.NODE_ENV !== 'production') {
+  config.admin = {
     serve: true,
     path: "/app",
     outDir: "build/admin",
@@ -40,5 +43,7 @@ module.exports = {
       serve: true
     },
     staticPath: "public"
-  }
-};
+  };
+}
+
+module.exports = config;
