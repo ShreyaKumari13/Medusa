@@ -27,4 +27,14 @@ module.exports = {
     },
   },
   plugins: [],
+  featureFlags: {
+    medusa_v2: true
+  },
+  admin: {
+    path: "/app",
+    serve: true,
+    develop: {
+      open: false,
+    }
+  }
 };
