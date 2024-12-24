@@ -29,6 +29,10 @@ const config = {
   plugins: [],
   featureFlags: {
     medusa_v2: true
+  },
+  publishableApiKeyScopes: {
+    sales_channel_id: [],
+    store: true
   }
 };
 
